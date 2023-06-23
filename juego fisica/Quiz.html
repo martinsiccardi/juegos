@@ -15,7 +15,6 @@
   <button onclick="submitQuiz()">Enviar respuestas</button>
 
   <script>
-    // Array con las preguntas y respuestas del quiz
     var questions = [
       {
         question: "Esta magnitud mide la cantidad de materia en un objeto:",
@@ -31,19 +30,36 @@
         question: "Esta magnitud mide la duración de un evento:",
         choices: ["Masa", "Longitud", "Tiempo"],
         correctAnswer: 2
+      },
+      {
+        question: "Esta magnitud mide la fuerza aplicada a un objeto:",
+        choices: ["Fuerza", "Temperatura", "Área"],
+        correctAnswer: 0
+      },
+      {
+        question: "Esta magnitud mide la cantidad de electricidad:",
+        choices: ["Corriente eléctrica", "Presión", "Volumen"],
+        correctAnswer: 0
+      },
+      {
+        question: "Esta magnitud mide la temperatura de un objeto:",
+        choices: ["Fuerza", "Temperatura", "Área"],
+        correctAnswer: 1
+      },
+      {
+        question: "Esta magnitud mide la rapidez de un objeto en movimiento:",
+        choices: ["Velocidad", "Densidad", "Peso"],
+        correctAnswer: 0
       }
     ];
 
-    // Función para mostrar el quiz en la página
     function displayQuiz() {
       var quizContainer = document.getElementById("quiz");
       var quizHTML = "";
 
-      // Recorre todas las preguntas y las muestra
       for (var i = 0; i < questions.length; i++) {
         quizHTML += '<h3>' + questions[i].question + '</h3>';
 
-        // Recorre las opciones de respuesta y las muestra
         for (var j = 0; j < questions[i].choices.length; j++) {
           quizHTML += '<input type="radio" name="question' + i +
             '" value="' + j + '">' + questions[i].choices[j] + '<br>';
@@ -55,13 +71,11 @@
       quizContainer.innerHTML = quizHTML;
     }
 
-    // Función para evaluar las respuestas del quiz
     function submitQuiz() {
       var quizContainer = document.getElementById("quiz");
       var answerContainers = quizContainer.getElementsByTagName("input");
       var numCorrect = 0;
 
-      // Recorre todas las preguntas y verifica las respuestas
       for (var i = 0; i < questions.length; i++) {
         var answerContainer = answerContainers[i];
         var selectedOption = parseInt(answerContainer.value);
@@ -71,12 +85,10 @@
         }
       }
 
-      // Muestra el resultado
       alert("Obtuviste " + numCorrect + " respuestas correctas de " +
         questions.length + " preguntas.");
     }
 
-    // Mostrar el quiz cuando la página se carga
     window.onload = displayQuiz;
   </script>
 </body>
