@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz de Magnitudes Fundamentales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #quiz {
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz de Magnitudes Fundamentales</h1>
+
+  <div id="quiz"></div>
+  <button onclick="submitQuiz()">Enviar respuestas</button>
+
+  <script>
+    var questions = [
+      {
+        question: "Esta magnitud mide la cantidad de materia en un objeto:",
+        choices: ["Masa", "Longitud", "Tiempo"],
+        correctAnswer: 0
+      },
+      {
+        question: "Esta magnitud mide la distancia entre dos puntos:",
+        choices: ["Masa", "Longitud", "Tiempo"],
+        correctAnswer: 1
+      },
+      {
+        question: "Esta magnitud mide la duración de un evento:",
+        choices: ["Masa", "Longitud", "Tiempo"],
+        correctAnswer: 2
+      },
+      {
+        question: "Esta magnitud mide la fuerza aplicada a un objeto:",
+        choices: ["Fuerza", "Temperatura", "Área"],
+        correctAnswer: 0
+      },
+      {
+        question: "Esta magnitud mide la cantidad de electricidad:",
+        choices: ["Corriente eléctrica", "Presión", "Volumen"],
+        correctAnswer: 0
+      },
+      {
+        question: "Esta magnitud mide la temperatura de un objeto:",
+        choices: ["Fuerza", "Temperatura", "Área"],
+        correctAnswer: 1
+      },
+      {
+        question: "Esta magnitud mide la rapidez de un objeto en movimiento:",
+        choices: ["Velocidad", "Densidad", "Peso"],
+        correctAnswer: 0
+      }
+    ];
+
+    function displayQuiz() {
+      var quizContainer = document.getElementById("quiz");
+      var quizHTML = "";
+
+      for (var i = 0; i < questions.length; i++) {
+        quizHTML += '<h3>' + questions[i].question + '</h3>';
+
+        for (var j = 0; j < questions[i].choices.length; j++) {
+          quizHTML += '<input type="radio" name="question' + i +
+            '" value="' + j + '">' + questions[i].choices[j] + '<br>';
+        }
+
+        quizHTML += '<br>';
+      }
+
+      quizContainer.innerHTML = quizHTML;
+    }
+
+    function submitQuiz() {
+      var quizContainer = document.getElementById("quiz");
+      var answerContainers = quizContainer.getElementsByTagName("input");
+      var numCorrect = 0;
+
+      for (var i = 0; i < questions.length; i++) {
+        var answerContainer = answerContainers[i];
+        var selectedOption = parseInt(answerContainer.value);
+
+        if (selectedOption === questions[i].correctAnswer) {
+          numCorrect++;
+        }
+      }
+
+      alert("Obtuviste " + numCorrect + " respuestas correctas de " +
+        questions.length + " preguntas.");
+    }
+
+    window.onload = displayQuiz;
+  </script>
+</body>
+</html>
