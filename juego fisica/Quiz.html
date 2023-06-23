@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz de Magnitudes Fundamentales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz de Magnitudes Fundamentales</h1>
+
+  <div id="quiz"></div>
+  <button onclick="submitQuiz()">Enviar respuestas</button>
+
+  <script>
+    // Array con las preguntas y respuestas del quiz
+    var questions = [
+      {
+        question: "Esta magnitud mide la cantidad de materia en un objeto:",
+        choices: ["Masa", "Longitud", "Tiempo"],
+        correctAnswer: 0
+      },
+      {
+        question: "Esta magnitud mide la distancia entre dos puntos:",
+        choices: ["Masa", "Longitud", "Tiempo"],
+        correctAnswer: 1
+      },
+      {
+        question: "Esta magnitud mide la duración de un evento:",
+        choices: ["Masa", "Longitud", "Tiempo"],
+        correctAnswer: 2
+      }
+    ];
+
+    // Función para mostrar el quiz en la página
+    function displayQuiz() {
+      var quizContainer = document.getElementById("quiz");
+      var quizHTML = "";
+
+      // Recorre todas las preguntas y las muestra
+      for (var i = 0; i < questions.length; i++) {
+        quizHTML += '<h3>' + questions[i].question + '</h3>';
+
+        // Recorre las opciones de respuesta y las muestra
+        for (var j = 0; j < questions[i].choices.length; j++) {
+          quizHTML += '<input type="radio" name="question' + i +
+            '" value="' + j + '">' + questions[i].choices[j] + '<br>';
+        }
+
+        quizHTML += '<br>';
+      }
+
+      quizContainer.innerHTML = quizHTML;
+    }
+
+    // Función para evaluar las respuestas del quiz
+    function submitQuiz() {
+      var quizContainer = document.getElementById("quiz");
+      var answerContainers = quizContainer.getElementsByTagName("input");
+      var numCorrect = 0;
+
+      // Recorre todas las preguntas y verifica las respuestas
+      for (var i = 0; i < questions.length; i++) {
+        var answerContainer = answerContainers[i];
+        var selectedOption = parseInt(answerContainer.value);
+
+        if (selectedOption === questions[i].correctAnswer) {
+          numCorrect++;
+        }
+      }
+
+      // Muestra el resultado
+      alert("Obtuviste " + numCorrect + " respuestas correctas de " +
+        questions.length + " preguntas.");
+    }
+
+    // Mostrar el quiz cuando la página se carga
+    window.onload = displayQuiz;
+  </script>
+</body>
+</html>
