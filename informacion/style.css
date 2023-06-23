@@ -3,7 +3,7 @@
     background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #fff;
+    color: rgb(0, 0, 0);
 
 }
 
@@ -11,7 +11,7 @@
     
         margin: 0;
         padding: 0;
-        background: url(https://cdn.pixabay.com/photo/2016/11/09/15/27/dna-1811955_1280.jpg);   
+        background: url(https://img.freepik.com/vector-gratis/fondo-tecnologia-digital-alambre-malla-red_1017-27428.jpg);   
         background-size: 100% 100%;
         background-position: center;
         background-attachment: fixed;
@@ -89,4 +89,7 @@ nav ul {
   .footer-social .fab {
     font-size: 24px; 
 
+}
+.footer{
+  color: rgb(255, 255, 255);
 }
